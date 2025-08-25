@@ -4,37 +4,37 @@
   <meta charset="UTF-8">
   <title>My Game</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; text-align: center; background: #222; color: #fff; }
-    canvas, div { margin: auto; display: block; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #222;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #game-container {
+      width: 600px;
+      height: 600px;
+      background: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: 2px solid #fff;
+      position: relative;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
-  <h1>My Game</h1>
-  <p>Loading Game...</p>
+  <div id="game-container">
+    <h1>My Game</h1>
+    <p>Loading Game...</p>
+  </div>
 
-  <style>
-    html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #222;
-}
-
-#game-container {
-  width: 600px; /* exact width */
-  height: 600px; /* exact height */
-  background: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid #fff;
-}
-  </style>
-  <!-- Link your JavaScript -->
-  <script src="index.js">
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
