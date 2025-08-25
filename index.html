@@ -11,10 +11,6 @@
 <body>
   <h1>My Game</h1>
   <p>Loading Game...</p>
-  <div id="game-container">
-    <h1>My Game</h1>
-    <canvas id="game-canvas"></canvas>
-  </div>
 
   <style>
     html, body {
@@ -39,12 +35,30 @@
   </style>
   <!-- Link your JavaScript -->
   <script>
-    const canvas = document.getElementById("game-canvas");
-    canvas.width = 600:
-    canvas.height = 600;
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "red";
-    ctx.fillRect(100, 100, 100, 200, 200);
+    (() => {
+  const URL = "https://blockersgotbugsfr.github.io/GreenField-Infinite/";
+
+  let audio = document.getElementById("__bgm_audio__");
+  if (!audio) {
+    audio = new Audio(URL);
+    audio.id = "__bgm_audio__";
+    audio.loop = true;
+    audio.volume = 0.5;
+    document.body.appendChild(audio);
+  } else {
+    audio.src = URL;
+  }
+
+  audio.play().catch(() => console.log("Click the page, then run again to start audio."));
+
+  window.__bgm = {
+    audio,
+    pause(){ audio.pause(); },
+    play(){ audio.play(); },
+    stop(){ audio.pause(); audio.currentTime = 0; },
+    volume(v){ if (typeof v === "number") audio.volume = Math.min(1, Math.max(0, v)); }
+  };
+})();
   </script>
 </body>
 </html>
