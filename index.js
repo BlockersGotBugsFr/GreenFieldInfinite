@@ -17,7 +17,7 @@
     color: 'white',
     fontSize: '20px',
     fontFamily: 'sans-serif',
-    zIndex: 2147483651,
+    zIndex: 2147483651, // Now above enemies!
     textShadow: '0 0 4px black'
   });
   scoreDisplay.textContent = `Score: ${score}`;
@@ -118,12 +118,12 @@
 
   function spawnEnemy() {
     const types = ['Zombie', 'Tank', 'Speedy'];
-      if (score >= 50) { 
-        types.push('Ghost');
-      }
-      if (score >= 100) {
-        types.push('Leech');
-      }
+    if (score >= 50) { // Only spawn ghosts after score 50!
+      types.push('Ghost');
+    }
+    if (score >= 100) {
+      types.push('Leech');
+    }
     const type = types[Math.floor(Math.random() * types.length)];
     const enemy = document.createElement('div');
     enemy.className = `enemy-${type}`;
@@ -279,7 +279,7 @@
         paused = true;
         cancelAnimationFrame(raf);
 
-        // Game Over Screen 
+        // Make a full-screen overlay
         const gameOverScreen = document.createElement('div');
 
         // Clone of player block for Game Over screen
@@ -290,7 +290,7 @@
           background: "tan",
           border: "2px solid black",
           borderRadius: "6px",
-          marginTop: "30px",
+          marginTop: "-35px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -321,7 +321,6 @@
           opacity: 0.6
         });
 
-        // YouTube text 
         const ytText = document.createElement('div');
         ytText.textContent = "Sub 2 @ItsToonyTime";
         Object.assign(ytText.style, {
@@ -356,7 +355,7 @@
           zIndex: 2147483655
         });
 
-        // Make eyes follow the mouse
+        // 🔥 Make eyes follow the mouse
         window.addEventListener("mousemove", (e) => {
           const rect = extraDiv.getBoundingClientRect();
           const centerX = rect.left + rect.width / 2;
@@ -373,7 +372,7 @@
           extraText.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         });
 
-        // Blink effect
+        // ✨ Blink effect
         setInterval(() => {
           extraText.textContent = "— —"; // eyes closed
           setTimeout(() => {
