@@ -290,7 +290,7 @@
           background: "tan",
           border: "2px solid black",
           borderRadius: "6px",
-          marginTop: "-35px",
+          marginTop: "30px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
