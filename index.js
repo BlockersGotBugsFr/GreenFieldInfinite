@@ -8,9 +8,9 @@
   let level = 1;
 
   // Score counter
-  let score = 0;
+  let score = 0; // score
   const scoreDisplay = document.createElement('div');
-  Object.assign(scoreDisplay.style, {
+  Object.assign(scoreDisplay.style, { //score style
     position: 'fixed',
     top: '10px',
     left: '10px',
@@ -25,7 +25,7 @@
 
   // Background block 🟩
   const bgBlock = document.createElement('div');
-  Object.assign(bgBlock.style, {
+  Object.assign(bgBlock.style, { // background style
     position: 'fixed',
     left: '0px',
     top: '0px',
@@ -40,7 +40,7 @@
   // player ⬜️
   const block = document.createElement('div');
   block.id = 'block';
-  Object.assign(block.style, {
+  Object.assign(block.style, { // player style
     position: 'fixed',
     left: '200px',
     top: '150px',
@@ -138,13 +138,13 @@
       pointerEvents: 'none'
     });
 
-    if (type === 'Zombie') {
+    if (type === 'Zombie') { // zombie enemy 
       enemy.style.background = 'rgba(0,100,0,1)';
       enemy.hp = 1;
       enemy.speed = 100;
       enemy.style.zIndex = enemyZIndex;
     }
-    if (type === 'Tank') {
+    if (type === 'Tank') { // tank enemy
       enemy.style.background = 'darkred';
       enemy.style.width = "70px";
       enemy.style.height = "70px";
@@ -152,7 +152,7 @@
       enemy.speed = 75;
       enemy.style.zIndex = enemyZIndex;
     }
-    if (type === 'Speedy') {
+    if (type === 'Speedy') { // speedy enemy
       enemy.style.background = 'blue';
       enemy.style.width = "35px";
       enemy.style.height = "35px";
@@ -160,7 +160,7 @@
       enemy.speed = 250;
       enemy.style.zIndex = enemyZIndex;
     }
-    if (type === 'Ghost') {
+    if (type === 'Ghost') { // ghost enemy 
       enemy.style.background = 'white';
       enemy.hp = 2;
       enemy.speed = 200;
@@ -168,7 +168,7 @@
       enemy.immunityChance = 0.8; // 80% chance
       enemy.style.zIndex = 2147483646; // Lower than other enemies
     }
-    if (type === 'Leech') {
+    if (type === 'Leech') { // leech enemy
       enemy.style.background = '#636B2F';
       enemy.hp = 1;
       enemy.style.width = "15px";
@@ -284,7 +284,7 @@
 
         // Clone of player block for Game Over screen
         const extraDiv = document.createElement('div');
-        Object.assign(extraDiv.style, {
+        Object.assign(extraDiv.style, { // game over character
           width: size + "px",
           height: size + "px",
           background: "tan",
