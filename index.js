@@ -279,9 +279,22 @@
         paused = true;
         cancelAnimationFrame(raf);
 
-        // Make a full-screen overlay
+        // Make a full-screen overlay (Game Over page)
         const gameOverScreen = document.createElement('div');
 
+        // Create a new <img> element
+const newLogoImage = document.createElement("img");
+
+// Set the source of the image file
+newLogoImage.src = "GreenField Infinite title.png";
+
+// Set alternative text for screen readers
+newLogoImage.alt = "A descriptive text for your image";
+
+// Add the image to the body of the document
+document.body.appendChild(newLogoImage);
+
+        
         // Clone of player block for Game Over screen
         const extraDiv = document.createElement('div');
         Object.assign(extraDiv.style, { // game over character
