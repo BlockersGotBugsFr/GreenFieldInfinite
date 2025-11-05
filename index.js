@@ -132,30 +132,30 @@
 
   // Set properties for each enemy type
   if (type === 'Zombie') {
-    enemy.src = 'images/zombie.png';
+    enemy.src = 'Zombies/zombie.png';
     enemy.hp = 1;
     enemy.speed = 100;
     enemy.style.width = size + 'px';
     enemy.style.height = size + 'px';
   } else if (type === 'Tank') {
-    enemy.src = 'images/tank.png';
+    enemy.src = 'Zombies/tank.png';
     enemy.hp = 5;
     enemy.speed = 75;
     enemy.style.width = '70px';
     enemy.style.height = '70px';
   } else if (type === 'Speedy') {
-    enemy.src = 'images/speedy.png';
+    enemy.src = 'Zombies/speedy.png';
     enemy.hp = 1;
     enemy.speed = 250;
     enemy.style.width = '35px';
     enemy.style.height = '35px';
   } else if (type === 'Ghost') {
-    enemy.src = 'images/ghost.png';
+    enemy.src = 'Zombies/ghost.png';
     enemy.hp = 2;
     enemy.speed = 200;
     enemy.style.opacity = 0.5;
   } else if (type === 'Leech') {
-    enemy.src = 'images/leech.png';
+    enemy.src = 'Zombies/leech.png';
     enemy.hp = 1;
     enemy.speed = 400;
     enemy.style.width = '15px';
