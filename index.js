@@ -132,10 +132,13 @@
       position: 'fixed',
       width: size + 'px',
       height: size + 'px',
-      border: '2px solid black',
-      borderRadius: '6px',
-      boxShadow: '0 6px 16px rgba(0,0,0,.35)',
+      //border: '2px solid black',
+      //borderRadius: '6px',
+      //boxShadow: '0 6px 16px rgba(0,0,0,.35)',
       pointerEvents: 'none'
+        //
+      objectFit: 'contain';
+    zIndex: 2147483648;
     });
 
     if (type === 'Zombie') { // zombie enemy 
