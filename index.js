@@ -125,7 +125,7 @@
       types.push('Leech');
     }
     const type = types[Math.floor(Math.random() * types.length)];
-    const enemy = document.createElement('div');
+    const enemy = document.createElement('img');
     enemy.className = `enemy-${type}`;
     let enemyZIndex = 2147483648; // Default enemy z-index
     Object.assign(enemy.style, {
