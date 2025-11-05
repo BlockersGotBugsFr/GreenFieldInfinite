@@ -139,13 +139,15 @@
     });
 
     if (type === 'Zombie') { // zombie enemy 
-      enemy.style.background = 'rgba(0,100,0,1)';
+      enemy.src = "Zombies/Zombie.png";
+      //enemy.style.background = 'rgba(0,100,0,1)';
       enemy.hp = 1;
       enemy.speed = 100;
       enemy.style.zIndex = enemyZIndex;
     }
     if (type === 'Tank') { // tank enemy
-      enemy.style.background = 'darkred';
+      enemy.src = "Zombies/Tank idle.png";
+      //enemy.style.background = 'darkred';
       enemy.style.width = "70px";
       enemy.style.height = "70px";
       enemy.hp = 5;
@@ -153,7 +155,8 @@
       enemy.style.zIndex = enemyZIndex;
     }
     if (type === 'Speedy') { // speedy enemy
-      enemy.style.background = 'blue';
+      enemy.src = "Zombies/Speedy.png";
+      //enemy.style.background = 'blue';
       enemy.style.width = "35px";
       enemy.style.height = "35px";
       enemy.hp = 1;
@@ -161,7 +164,8 @@
       enemy.style.zIndex = enemyZIndex;
     }
     if (type === 'Ghost') { // ghost enemy 
-      enemy.style.background = 'white';
+      enemy.src = "Zombies/Ghost.png";
+      //enemy.style.background = 'white';
       enemy.hp = 2;
       enemy.speed = 200;
       enemy.style.opacity = .1;
@@ -169,7 +173,8 @@
       enemy.style.zIndex = 2147483646; // Lower than other enemies
     }
     if (type === 'Leech') { // leech enemy
-      enemy.style.background = '#636B2F';
+      enemy.src = "Zombies/Leech.png";
+      //enemy.style.background = '#636B2F';
       enemy.hp = 1;
       enemy.style.width = "15px";
       enemy.style.height = "15px";
