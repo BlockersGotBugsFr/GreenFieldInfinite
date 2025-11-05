@@ -117,90 +117,69 @@
   };
 
   function spawnEnemy() {
-    const types = ['Zombie', 'Tank', 'Speedy'];
-    if (score >= 50) { // Only spawn ghosts after score 50!
-      types.push('Ghost');
-    }
-    if (score >= 100) {
-      types.push('Leech');
-    }
-    const type = types[Math.floor(Math.random() * types.length)];
-    const enemy = document.createElement('img');
-    enemy.className = `enemy-${type}`;
-    let enemyZIndex = 2147483648; // Default enemy z-index
-    Object.assign(enemy.style, {
-      position: 'fixed',
-      width: size + 'px',
-      height: size + 'px',
-      //border: '2px solid black',
-      //borderRadius: '6px',
-      //boxShadow: '0 6px 16px rgba(0,0,0,.35)',
-      pointerEvents: 'none'
-        //
-      objectFit: 'contain';
-    zIndex: 2147483648;
-    });
+  const types = ['Zombie', 'Tank', 'Speedy'];
+  if (score >= 50) types.push('Ghost');
+  if (score >= 100) types.push('Leech');
+  const type = types[Math.floor(Math.random() * types.length)];
 
-    if (type === 'Zombie') { // zombie enemy 
-      enemy.src = "Zombies/Zombie.png";
-      //enemy.style.background = 'rgba(0,100,0,1)';
-      enemy.hp = 1;
-      enemy.speed = 100;
-      enemy.style.zIndex = enemyZIndex;
-    }
-    if (type === 'Tank') { // tank enemy
-      enemy.src = "Zombies/Tank idle.png";
-      //enemy.style.background = 'darkred';
-      enemy.style.width = "70px";
-      enemy.style.height = "70px";
-      enemy.hp = 5;
-      enemy.speed = 75;
-      enemy.style.zIndex = enemyZIndex;
-    }
-    if (type === 'Speedy') { // speedy enemy
-      enemy.src = "Zombies/Speedy.png";
-      //enemy.style.background = 'blue';
-      enemy.style.width = "35px";
-      enemy.style.height = "35px";
-      enemy.hp = 1;
-      enemy.speed = 250;
-      enemy.style.zIndex = enemyZIndex;
-    }
-    if (type === 'Ghost') { // ghost enemy 
-      enemy.src = "Zombies/Ghost.png";
-      //enemy.style.background = 'white';
-      enemy.hp = 2;
-      enemy.speed = 200;
-      enemy.style.opacity = .1;
-      enemy.immunityChance = 0.8; // 80% chance
-      enemy.style.zIndex = 2147483646; // Lower than other enemies
-    }
-    if (type === 'Leech') { // leech enemy
-      enemy.src = "Zombies/Leech.png";
-      //enemy.style.background = '#636B2F';
-      enemy.hp = 1;
-      enemy.style.width = "15px";
-      enemy.style.height = "15px";
-      enemy.speed = 400;
-      enemy.style.zIndex = enemyZIndex;
-    }
-    // spawn outside screen
-    const side = Math.floor(Math.random() * 4);
-    let ex, ey;
-    if (side === 0) { ex = -size; ey = Math.random() * window.innerHeight; }
-    if (side === 1) { ex = window.innerWidth + size; ey = Math.random() * window.innerHeight; }
-    if (side === 2) { ex = Math.random() * window.innerWidth; ey = -size; }
-    if (side === 3) { ex = Math.random() * window.innerWidth; ey = window.innerHeight + size; }
+  // Create an image instead of div
+  const enemy = document.createElement('img');
+  enemy.className = `enemy-${type}`;
+  enemy.style.position = 'fixed';
+  enemy.style.pointerEvents = 'none';
+  enemy.style.objectFit = 'contain';
+  enemy.style.zIndex = 2147483648;
 
-    enemy.x = ex;
-    enemy.y = ey;
-    enemy.type = type;
-
-    enemy.style.left = ex + 'px';
-    enemy.style.top = ey + 'px';
-    document.body.appendChild(enemy);
-    enemies.push(enemy);
+  // Set properties for each enemy type
+  if (type === 'Zombie') {
+    enemy.src = 'images/zombie.png';
+    enemy.hp = 1;
+    enemy.speed = 100;
+    enemy.style.width = size + 'px';
+    enemy.style.height = size + 'px';
+  } else if (type === 'Tank') {
+    enemy.src = 'images/tank.png';
+    enemy.hp = 5;
+    enemy.speed = 75;
+    enemy.style.width = '70px';
+    enemy.style.height = '70px';
+  } else if (type === 'Speedy') {
+    enemy.src = 'images/speedy.png';
+    enemy.hp = 1;
+    enemy.speed = 250;
+    enemy.style.width = '35px';
+    enemy.style.height = '35px';
+  } else if (type === 'Ghost') {
+    enemy.src = 'images/ghost.png';
+    enemy.hp = 2;
+    enemy.speed = 200;
+    enemy.style.opacity = 0.5;
+  } else if (type === 'Leech') {
+    enemy.src = 'images/leech.png';
+    enemy.hp = 1;
+    enemy.speed = 400;
+    enemy.style.width = '15px';
+    enemy.style.height = '15px';
   }
+
+  // Spawn outside screen
+  const side = Math.floor(Math.random() * 4);
+  let ex, ey;
+  if (side === 0) { ex = -size; ey = Math.random() * window.innerHeight; }
+  if (side === 1) { ex = window.innerWidth + size; ey = Math.random() * window.innerHeight; }
+  if (side === 2) { ex = Math.random() * window.innerWidth; ey = -size; }
+  if (side === 3) { ex = Math.random() * window.innerWidth; ey = window.innerHeight + size; }
+
+  enemy.x = ex;
+  enemy.y = ey;
+  enemy.type = type;
+
+  enemy.style.left = ex + 'px';
+  enemy.style.top = ey + 'px';
+
+  document.body.appendChild(enemy);
+  enemies.push(enemy);
+}
 
   // Pop effect only for a hit!
   function popEffect(el) {
